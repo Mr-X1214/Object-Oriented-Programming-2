@@ -10,6 +10,7 @@ namespace Dice_game
     internal class ThreeOrMore
     {
         Die dice = new Die();
+        int counter = 0;
 
         public void ToM()
         {
