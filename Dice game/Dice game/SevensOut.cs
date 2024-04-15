@@ -9,6 +9,7 @@ namespace Dice_game
     internal class SevensOut
     {
         Die dice = new Die();
+        int counter = 0;
 
         public void So()
         {
