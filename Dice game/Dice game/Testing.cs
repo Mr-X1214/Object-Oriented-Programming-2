@@ -13,7 +13,7 @@ namespace Dice_game
 
         public void Tests()
         {
-            h
+            
         }
     }
 }
