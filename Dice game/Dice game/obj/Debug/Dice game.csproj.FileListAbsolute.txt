@@ -5,3 +5,10 @@ C:\Users\Student\source\repos\Dice game\Dice game\obj\Debug\Dice game.csproj.Ass
 C:\Users\Student\source\repos\Dice game\Dice game\obj\Debug\Dice game.csproj.CoreCompileInputs.cache
 C:\Users\Student\source\repos\Dice game\Dice game\obj\Debug\Dice game.exe
 C:\Users\Student\source\repos\Dice game\Dice game\obj\Debug\Dice game.pdb
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\obj\Debug\Dice game.csproj.AssemblyReference.cache
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\obj\Debug\Dice game.csproj.CoreCompileInputs.cache
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\obj\Debug\Dice game.exe
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\obj\Debug\Dice game.pdb
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\bin\Debug\Dice game.exe.config
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\bin\Debug\Dice game.exe
+C:\Users\Student\Documents\GitHub\Object-Oriented-Programming-2\Dice game\Dice game\bin\Debug\Dice game.pdb

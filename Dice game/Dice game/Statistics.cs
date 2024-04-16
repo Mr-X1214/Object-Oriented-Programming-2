@@ -13,7 +13,9 @@ namespace Dice_game
 
         public void Stats()
         {
-            h
+            seven.SOStats();
+            Console.ReadLine();
+            three.TOMStats();
         }
     }
 }
