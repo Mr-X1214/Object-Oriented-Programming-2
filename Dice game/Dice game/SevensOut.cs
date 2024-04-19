@@ -266,11 +266,11 @@ namespace Dice_game
 
         public void WinPVP()
         {
-            using (StreamWriter sw = File.AppendText(@"Player1Score.txt"))
+            using (StreamWriter sw = File.AppendText ("Player1Score.txt"))
             {
                 sw.WriteLine(playerScore1);
             }
-            using (StreamWriter sw = File.AppendText("Player2Score"))
+            using (StreamWriter sw = File.AppendText("Player2Score.txt"))
             {
                 sw.WriteLine(playerScore2);
             }
