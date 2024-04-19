@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
 
 namespace Dice_game
 {
@@ -11,21 +12,20 @@ namespace Dice_game
     {
         Die die1 = new Die();
         Die die2 = new Die();
+
         public int sevenCounter = 0;
-        int playerScore1 = 0;
-        int playerScore2 = 0;
-        int botScore = 0;
+        public int playerScore1 = 0;
+        public int playerScore2 = 0;
+        public int botScore = 0;
         public int highPlayerscore1 = 0;
         public int highPlayerscore2 = 0;
         public int highBotscore = 0;
-        int playerAveragescore1 = 0;
-        int playerAveragescore2 = 0;
-        int botAveragescore = 0;
-        int diceCounter = 0;
+        public int diceCounter = 0;
         int SumOfDie = 0;
         int scoreAdd = 0;
-        int sCounter = 0;
-        int dCounter = 0;
+        public int sCounter = 0;
+        public int dCounter = 0;
+        public int gCounter = 0;
         int sumOfscore1 = 0;
         int sumOfscore2 = 0;
         int sumOfbotScore = 0;
@@ -34,9 +34,12 @@ namespace Dice_game
         List<int> botS = new List<int>();
         List<int> turnCounter = new List<int>();
         List<int> dieCounter = new List<int>();
+        List<int> gameCounter = new List<int>();
+
 
         public void SOPVP()
         {
+            gCounter += 1;
             Console.WriteLine("\nRules are as follows:");
             Console.WriteLine("Roll 2 dice and note the value");
             Console.WriteLine("Add the values together and add to the score");
@@ -49,6 +52,7 @@ namespace Dice_game
 
         public void SOPVE()
         {
+            gCounter += 1;
             Console.WriteLine("\nRules are as follows:");
             Console.WriteLine("Roll 2 dice and note the value");
             Console.WriteLine("Add the values together and add to the score");
@@ -262,10 +266,31 @@ namespace Dice_game
 
         public void WinPVP()
         {
-            player1S.Add(playerScore1);
-            player2S.Add(playerScore2);
-            turnCounter.Add(sevenCounter);
-            dieCounter.Add(diceCounter);
+            using (StreamWriter sw = File.AppendText(@"Player1Score.txt"))
+            {
+                sw.WriteLine(playerScore1);
+            }
+            using (StreamWriter sw = File.AppendText("Player2Score"))
+            {
+                sw.WriteLine(playerScore2);
+            }
+            using (StreamWriter sw = File.AppendText("BotScore.txt"))
+            {
+                sw.WriteLine(botScore);
+            }
+            using (StreamWriter sw = File.AppendText ("turnCounter.txt"))
+            {
+                sw.WriteLine(sevenCounter);
+            }
+            using (StreamWriter sw = File.AppendText ("RollCounter.txt"))
+            {
+                sw.WriteLine(diceCounter);
+            }
+            using (StreamWriter sw = File.AppendText ("GameCounter.txt"))
+            {
+                sw.WriteLine(gCounter);
+            }
+
             Console.WriteLine("\nThe game has ended.");
             if (playerScore1 > playerScore2)
             {
@@ -284,10 +309,36 @@ namespace Dice_game
 
         public void WinPVE()
         {
-            player1S.Add(playerScore1);
-            botS.Add(botScore);
-            turnCounter.Add(sevenCounter);
-            dieCounter.Add(diceCounter);
+            string file1 = @"Player1Score.txt";
+            using (StreamWriter sw = File.AppendText(file1))
+            {
+                sw.WriteLine(playerScore1);
+            }
+            string file2 = @"Player2Score.txt";
+            using (StreamWriter sw = File.AppendText(file2))
+            {
+                sw.WriteLine(playerScore2);
+            }
+            string file3 = @"BotScore.txt";
+            using (StreamWriter sw = File.AppendText(file3))
+            {
+                sw.WriteLine(botScore);
+            }
+            string file4 = @"TurnCounter.txt";
+            using (StreamWriter sw = File.AppendText(file4))
+            {
+                sw.WriteLine(turnCounter);
+            }
+            string file5 = @"RollCounter.txt";
+            using (StreamWriter sw = File.AppendText(file5))
+            {
+                sw.WriteLine(diceCounter);
+            }
+            string file6 = @"GameCounter.txt";
+            using (StreamWriter sw = File.AppendText(file6))
+            {
+                sw.WriteLine(gameCounter);
+            }
             Console.WriteLine("\nThe game has ended.");
             if (playerScore1 > botScore)
             {
@@ -305,36 +356,71 @@ namespace Dice_game
 
         public void SOStats()
         {
+            foreach (string item in (File.ReadLines("Player1Score.txt")))
+            {
+                int num = Int32.Parse(item);
+                player1S.Add(num);
+            }
+            foreach (string item in (File.ReadLines("Player2Score.txt")))
+            {
+                int num = Int32.Parse(item);
+                player2S.Add(num);
+            }
+            foreach (string item in (File.ReadLines("BotScore.txt")))
+            {
+                int num = Int32.Parse(item);
+                botS.Add(num);
+            }
+            foreach (string item in (File.ReadLines("GameCounter.txt")))
+            {
+                int num = Int32.Parse(item);
+                gameCounter.Add(num);
+            }
+            foreach (string item in (File.ReadLines("TurnCounter.txt")))
+            {
+                int num = Int32.Parse(item);
+                turnCounter.Add(num);
+            }
+            foreach (string item in (File.ReadLines("RollCounter.txt")))
+            {
+                int num = Int32.Parse(item);
+                dieCounter.Add(num);
+            }
+
+
             player1S.Sort();
             player2S.Sort();
             botS.Sort();
             foreach (int item in turnCounter)
             {
-                sCounter = item + item;
+                int sCounter = item + item;
             }
             foreach (int item in dieCounter)
             {
-                dCounter = item + item;
+                int dCounter = item + item;
             }
             foreach (int item in player1S)
             {
-                sumOfscore1 = item + item;
+                int sumOfscore1 = item + item;
             }
             foreach (int item in player2S)
             {
-                sumOfscore2 = item + item;
+                int sumOfscore2 = item + item;
             }
             foreach (int item in botS)
             {
-                sumOfbotScore = item + item;
+                int sumOfbotScore = item + item;
             }
 
-            highPlayerscore1 = player1S[-1];
-            highPlayerscore2 = player2S[-1];
-            highBotscore = botS[-1];
-            playerAveragescore1 = sumOfscore1;
-            playerAveragescore2 = sumOfscore2;
-            botAveragescore = sumOfbotScore;
+            int highPlayerscore1 = player1S[-1];
+            int highPlayerscore2 = player2S[-1];
+            int highBotscore = botS[-1];
+            int player1SLength = player1S.Count;
+            int player2SLength = player2S.Count;
+            int botSLength = botS.Count;
+            int playerAveragescore1 = sumOfscore1 / player1SLength;
+            int playerAveragescore2 = sumOfscore2 /player2SLength;
+            int botAveragescore = sumOfbotScore / botSLength;
 
             Console.WriteLine("\nSevens Out Statistics: ");
             Console.WriteLine($"\nPlayer 1 high score: {highPlayerscore1}");
