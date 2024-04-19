@@ -20,6 +20,12 @@ namespace Dice_game
         public int highPlayerscore1 = 0;
         public int highPlayerscore2 = 0;
         public int highBotscore = 0;
+        public int player1SLength = 0;
+        public int player2SLength = 0;
+        public int botSLength = 0;
+        public int playerAveragescore1 = 0;
+        public int playerAveragescore2 = 0;
+        public int botAveragescore = 0;
         public int diceCounter = 0;
         int SumOfDie = 0;
         int scoreAdd = 0;
@@ -29,12 +35,12 @@ namespace Dice_game
         int sumOfscore1 = 0;
         int sumOfscore2 = 0;
         int sumOfbotScore = 0;
-        List<int> player1S = new List<int>();
-        List<int> player2S = new List<int>();
-        List<int> botS = new List<int>();
-        List<int> turnCounter = new List<int>();
-        List<int> dieCounter = new List<int>();
-        List<int> gameCounter = new List<int>();
+        public List<int> player1S = new List<int>();
+        public List<int> player2S = new List<int>();
+        public List<int> botS = new List<int>();
+        public List<int> turnCounter = new List<int>();
+        public List<int> dieCounter = new List<int>();
+        public List<int> gameCounter = new List<int>();
 
 
         public void SOPVP()
@@ -411,26 +417,37 @@ namespace Dice_game
             {
                 int sumOfbotScore = item + item;
             }
+            foreach (int item in gameCounter)
+            {
+                int gCounter = item + item;
+            }
 
-            int highPlayerscore1 = player1S[-1];
-            int highPlayerscore2 = player2S[-1];
-            int highBotscore = botS[-1];
-            int player1SLength = player1S.Count;
-            int player2SLength = player2S.Count;
-            int botSLength = botS.Count;
-            int playerAveragescore1 = sumOfscore1 / player1SLength;
-            int playerAveragescore2 = sumOfscore2 /player2SLength;
-            int botAveragescore = sumOfbotScore / botSLength;
+            highPlayerscore1 = player1S[0];
+            highPlayerscore2 = player2S[0];
+            highBotscore = botS[0];
+            player1SLength = player1S.Count;
+            player2SLength = player2S.Count;
+            botSLength = botS.Count;
+            playerAveragescore1 = sumOfscore1 / player1SLength;
+            playerAveragescore2 = sumOfscore2 /player2SLength;
+            botAveragescore = sumOfbotScore / botSLength;
 
             Console.WriteLine("\nSevens Out Statistics: ");
             Console.WriteLine($"\nPlayer 1 high score: {highPlayerscore1}");
             Console.WriteLine($"Player 1 average score: {playerAveragescore1}");
+            Console.WriteLine(player1S);
             Console.WriteLine($"Player 2 high score: {highPlayerscore2}");
             Console.WriteLine($"Player 2 average score: {playerAveragescore2}");
+            Console.WriteLine(player2S);
             Console.WriteLine($"Computer high score: {highBotscore}");
             Console.WriteLine($"Computer average score: {botAveragescore}");
-            Console.WriteLine($"Times game played: {sCounter}");
+            Console.WriteLine(botS);
+            Console.WriteLine($"Amount of turns taken played: {sCounter}");
+            Console.WriteLine(turnCounter);
             Console.WriteLine($"Times dice has been rolled: {dCounter}");
+            Console.WriteLine(diceCounter);
+            Console.WriteLine($"Time game played: {gCounter}");
+            Console.WriteLine(gameCounter);
         }
     }
 }

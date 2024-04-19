@@ -16,9 +16,9 @@ namespace Dice_game
         Die die5 = new Die();
         Die rerolldie = new Die();
         int threeCounter = 0;
-        int playerScore1 = 0;
+        public int playerScore1 = 0;
         int playerScore2 = 0;
-        int botScore = 0;
+        public int botScore = 0;
         public int highPlayerscore1 = 0;
         public int highPlayerscore2 = 0;
         public int highBotscore = 0;
