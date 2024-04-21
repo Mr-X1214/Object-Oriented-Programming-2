@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Dice_game
 {
@@ -27,6 +28,8 @@ namespace Dice_game
         public int playerAveragescore2 = 0;
         public int botAveragescore = 0;
         public int diceCounter = 0;
+        public int seCounter = 0;
+        public int gaCounter = 0;
         int SumOfDie = 0;
         int scoreAdd = 0;
         public int sCounter = 0;
@@ -71,10 +74,10 @@ namespace Dice_game
 
         public void Player1PVP()
         {
-            sevenCounter += 1;
+            sevenCounter ++;
             Console.WriteLine("\nRoll the dice...");
             die1.Roll();
-            diceCounter += 1;
+            diceCounter ++;
 
             Thread.Sleep(100);
             die2.Roll();
@@ -172,7 +175,7 @@ namespace Dice_game
 
         public void Player2() 
         {
-            sevenCounter += 1;
+            sevenCounter ++;
             Console.WriteLine("\nRoll the dice...");
             die1.Roll();
             diceCounter += 1;
@@ -272,31 +275,14 @@ namespace Dice_game
 
         public void WinPVP()
         {
-            using (StreamWriter sw = File.AppendText ("Player1Score.txt"))
-            {
-                sw.WriteLine(playerScore1);
-            }
-            using (StreamWriter sw = File.AppendText("Player2Score.txt"))
-            {
-                sw.WriteLine(playerScore2);
-            }
-            using (StreamWriter sw = File.AppendText("BotScore.txt"))
-            {
-                sw.WriteLine(botScore);
-            }
-            using (StreamWriter sw = File.AppendText ("turnCounter.txt"))
-            {
-                sw.WriteLine(sevenCounter);
-            }
-            using (StreamWriter sw = File.AppendText ("RollCounter.txt"))
-            {
-                sw.WriteLine(diceCounter);
-            }
-            using (StreamWriter sw = File.AppendText ("GameCounter.txt"))
-            {
-                sw.WriteLine(gCounter);
-            }
-
+            player1S.Add(1);
+            player2S.Add(1);
+            botS.Add(1);
+            player1S.Add(playerScore1);
+            player2S.Add(playerScore2);
+            gameCounter.Add(gCounter);
+            turnCounter.Add(sevenCounter);
+            dieCounter.Add(diceCounter);
             Console.WriteLine("\nThe game has ended.");
             if (playerScore1 > playerScore2)
             {
@@ -311,40 +297,24 @@ namespace Dice_game
                 Console.WriteLine($"It was a draw with both players getting {playerScore1} points!");
             }
 
+
+            SOStats();
+            //Console.WriteLine("\nPress enter to continue");
+            //Console.WriteLine();
+            //Console.ReadLine();
+            //next();
         }
 
         public void WinPVE()
         {
-            string file1 = @"Player1Score.txt";
-            using (StreamWriter sw = File.AppendText(file1))
-            {
-                sw.WriteLine(playerScore1);
-            }
-            string file2 = @"Player2Score.txt";
-            using (StreamWriter sw = File.AppendText(file2))
-            {
-                sw.WriteLine(playerScore2);
-            }
-            string file3 = @"BotScore.txt";
-            using (StreamWriter sw = File.AppendText(file3))
-            {
-                sw.WriteLine(botScore);
-            }
-            string file4 = @"TurnCounter.txt";
-            using (StreamWriter sw = File.AppendText(file4))
-            {
-                sw.WriteLine(turnCounter);
-            }
-            string file5 = @"RollCounter.txt";
-            using (StreamWriter sw = File.AppendText(file5))
-            {
-                sw.WriteLine(diceCounter);
-            }
-            string file6 = @"GameCounter.txt";
-            using (StreamWriter sw = File.AppendText(file6))
-            {
-                sw.WriteLine(gameCounter);
-            }
+            player1S.Add(1);
+            player2S.Add(1);
+            botS.Add(1);
+            player1S.Add(playerScore1);
+            botS.Add(botScore);
+            gameCounter.Add(gCounter);
+            turnCounter.Add(sevenCounter);
+            dieCounter.Add(diceCounter);
             Console.WriteLine("\nThe game has ended.");
             if (playerScore1 > botScore)
             {
@@ -358,68 +328,46 @@ namespace Dice_game
             {
                 Console.WriteLine($"It was a draw with both players getting {playerScore1} points!");
             }
+
+            Console.WriteLine("\nPress enter to continue");
+            Console.WriteLine();
+            Console.ReadLine();
+            next();
         }
 
         public void SOStats()
         {
-            foreach (string item in (File.ReadLines("Player1Score.txt")))
-            {
-                int num = Int32.Parse(item);
-                player1S.Add(num);
-            }
-            foreach (string item in (File.ReadLines("Player2Score.txt")))
-            {
-                int num = Int32.Parse(item);
-                player2S.Add(num);
-            }
-            foreach (string item in (File.ReadLines("BotScore.txt")))
-            {
-                int num = Int32.Parse(item);
-                botS.Add(num);
-            }
-            foreach (string item in (File.ReadLines("GameCounter.txt")))
-            {
-                int num = Int32.Parse(item);
-                gameCounter.Add(num);
-            }
-            foreach (string item in (File.ReadLines("TurnCounter.txt")))
-            {
-                int num = Int32.Parse(item);
-                turnCounter.Add(num);
-            }
-            foreach (string item in (File.ReadLines("RollCounter.txt")))
-            {
-                int num = Int32.Parse(item);
-                dieCounter.Add(num);
-            }
-
-
             player1S.Sort();
             player2S.Sort();
             botS.Sort();
+
+            player1S.Reverse();
+            player2S.Reverse();
+            botS.Reverse();
+
             foreach (int item in turnCounter)
             {
-                int sCounter = item + item;
+                sCounter = item + item;
             }
             foreach (int item in dieCounter)
             {
-                int dCounter = item + item;
+                dCounter = item + item;
             }
             foreach (int item in player1S)
             {
-                int sumOfscore1 = item + item;
+                sumOfscore1 = item + item;
             }
             foreach (int item in player2S)
             {
-                int sumOfscore2 = item + item;
+                sumOfscore2 = item + item;
             }
             foreach (int item in botS)
             {
-                int sumOfbotScore = item + item;
+                sumOfbotScore = item + item;
             }
             foreach (int item in gameCounter)
             {
-                int gCounter = item + item;
+                gaCounter = item + item;
             }
 
             highPlayerscore1 = player1S[0];
@@ -435,19 +383,19 @@ namespace Dice_game
             Console.WriteLine("\nSevens Out Statistics: ");
             Console.WriteLine($"\nPlayer 1 high score: {highPlayerscore1}");
             Console.WriteLine($"Player 1 average score: {playerAveragescore1}");
-            Console.WriteLine(player1S);
             Console.WriteLine($"Player 2 high score: {highPlayerscore2}");
             Console.WriteLine($"Player 2 average score: {playerAveragescore2}");
-            Console.WriteLine(player2S);
             Console.WriteLine($"Computer high score: {highBotscore}");
             Console.WriteLine($"Computer average score: {botAveragescore}");
-            Console.WriteLine(botS);
             Console.WriteLine($"Amount of turns taken played: {sCounter}");
-            Console.WriteLine(turnCounter);
-            Console.WriteLine($"Times dice has been rolled: {dCounter}");
-            Console.WriteLine(diceCounter);
-            Console.WriteLine($"Time game played: {gCounter}");
-            Console.WriteLine(gameCounter);
+            Console.WriteLine($"Times dice has been rolled: {diceCounter}");
+            Console.WriteLine($"Time game played: {gaCounter}");
+        }
+
+        public void next()
+        {
+            Game game = new Game();
+            game.menu();
         }
     }
 }
