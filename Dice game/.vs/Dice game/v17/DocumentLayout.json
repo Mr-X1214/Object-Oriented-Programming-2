@@ -11,20 +11,20 @@
       "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\statistics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\threeormore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\threeormore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\die.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\die.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\die.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\die.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\threeormore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\threeormore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\dice game\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1F58E99-8A2C-4AED-9648-0B0DD7DC2D76}|Dice game\\Dice game.csproj|solutionrelative:dice game\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,13 +38,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Testing.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Testing.cs",
               "RelativeDocumentMoniker": "Dice game\\Testing.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Testing.cs",
               "RelativeToolTip": "Dice game\\Testing.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAAYAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAuwB8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T23:34:16.474Z",
               "EditorCaption": ""
@@ -57,22 +57,23 @@
               "RelativeDocumentMoniker": "Dice game\\Statistics.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Statistics.cs",
               "RelativeToolTip": "Dice game\\Statistics.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAABQAAAAgAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T23:34:13.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ThreeOrMore.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\ThreeOrMore.cs",
               "RelativeDocumentMoniker": "Dice game\\ThreeOrMore.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\ThreeOrMore.cs",
               "RelativeToolTip": "Dice game\\ThreeOrMore.cs",
-              "ViewState": "AQIAAMIEAAAAAAAAAAAAAA0AAAAdAAAA",
+              "ViewState": "AQIAAEwEAAAAAAAAAAAAAA0AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T23:34:19.169Z"
+              "WhenOpened": "2024-04-15T23:34:19.169Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -82,34 +83,36 @@
               "RelativeDocumentMoniker": "Dice game\\SevensOut.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\SevensOut.cs",
               "RelativeToolTip": "Dice game\\SevensOut.cs",
-              "ViewState": "AQIAANYBAAAAAAAAAAAAAOYBAAAdAAAA",
+              "ViewState": "AQIAAIYBAAAAAAAAAAAAAJUBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T23:34:11.624Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Game.cs",
               "RelativeDocumentMoniker": "Dice game\\Game.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Game.cs",
               "RelativeToolTip": "Dice game\\Game.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAAAIUAAAAJAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAIUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T23:34:08.965Z"
+              "WhenOpened": "2024-04-15T23:34:08.965Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Die.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Die.cs",
               "RelativeDocumentMoniker": "Dice game\\Die.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\Object-Oriented-Programming-2\\Dice game\\Dice game\\Die.cs",
               "RelativeToolTip": "Dice game\\Die.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAcwAsAAAAIAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T23:34:00.678Z"
+              "WhenOpened": "2024-04-15T23:34:00.678Z",
+              "EditorCaption": ""
             }
           ]
         }

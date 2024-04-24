@@ -18,15 +18,18 @@ namespace Dice_game
         public int playerScore1;
         public int playerScore2;
         public int botScore;
-        public int highPlayerscore1;
-        public int highPlayerscore2;
-        public int highBotscore;
+        public int hps1;
+        public int hps2;
+        public int hbs;
         public int player1SLength;
         public int player2SLength;
         public int botSLength;
-        public int playerAveragescore1;
-        public int playerAveragescore2;
-        public int botAveragescore;
+        public int pas1;
+        public int pas2;
+        public int bas;
+        public int sc;
+        public int dc;
+        public int gc;
         public int diceCounter;
         public int gaCounter;
         public int SumOfDie;
@@ -363,6 +366,8 @@ namespace Dice_game
             player1S.Reverse();
             player2S.Reverse();
             botS.Reverse();
+            player1SLength = player1S.Count;
+            player2SLength = player2S.Count;
 
             foreach (int item in turnCounter)
             {
@@ -389,16 +394,19 @@ namespace Dice_game
                 gaCounter = item + item;
             }
 
-            highPlayerscore1 = player1S[0];
-            highPlayerscore2 = player2S[0];
-            highBotscore = botS[0];
-            player1SLength = player1S.Count;
-            player2SLength = player2S.Count;
+            sc = sCounter;
+            dc = dCounter;
+            gc = gaCounter;
+            hps1 = player1S[0];
+            hps2 = player2S[0];
+            hbs = botS[0];
             botSLength = botS.Count;
-            playerAveragescore1 = sumOfscore1 / player1SLength;
-            playerAveragescore2 = sumOfscore2 /player2SLength;
-            botAveragescore = sumOfbotScore / botSLength;
+            pas1 = sumOfscore1 / player1SLength;
+            pas2 = sumOfscore2 /player2SLength;
+            bas = sumOfbotScore / botSLength;
 
+            Statistics stats = new Statistics();
+            stats.sevenstats(hps1, pas1, hps2, pas2, hbs, bas, sc, dc, gc);
         }
 
         public void next()
