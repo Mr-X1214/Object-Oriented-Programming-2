@@ -17,5 +17,10 @@ namespace Dice_game
             Console.ReadLine();
             three.TOMStats();
         }
+
+        public void sevenstats()
+        {
+            
+        }
     }
 }

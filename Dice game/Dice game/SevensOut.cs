@@ -14,30 +14,31 @@ namespace Dice_game
         Die die1 = new Die();
         Die die2 = new Die();
 
-        public int sevenCounter = 0;
-        public int playerScore1 = 0;
-        public int playerScore2 = 0;
-        public int botScore = 0;
-        public int highPlayerscore1 = 0;
-        public int highPlayerscore2 = 0;
-        public int highBotscore = 0;
-        public int player1SLength = 0;
-        public int player2SLength = 0;
-        public int botSLength = 0;
-        public int playerAveragescore1 = 0;
-        public int playerAveragescore2 = 0;
-        public int botAveragescore = 0;
-        public int diceCounter = 0;
-        public int seCounter = 0;
-        public int gaCounter = 0;
-        int SumOfDie = 0;
-        int scoreAdd = 0;
-        public int sCounter = 0;
-        public int dCounter = 0;
-        public int gCounter = 0;
-        int sumOfscore1 = 0;
-        int sumOfscore2 = 0;
-        int sumOfbotScore = 0;
+        public int sevenCounter;
+        public int playerScore1;
+        public int playerScore2;
+        public int botScore;
+        public int highPlayerscore1;
+        public int highPlayerscore2;
+        public int highBotscore;
+        public int player1SLength;
+        public int player2SLength;
+        public int botSLength;
+        public int playerAveragescore1;
+        public int playerAveragescore2;
+        public int botAveragescore;
+        public int diceCounter;
+        public int gaCounter;
+        public int SumOfDie;
+        public int scoreAdd;
+        public int sCounter;
+        public int dCounter;
+        public int gCounter;
+        public int sumOfscore1;
+        public int sumOfscore2;
+        public int sumOfbotScore;
+        public int botTestscore1;
+        public int botTestscore2;
         public List<int> player1S = new List<int>();
         public List<int> player2S = new List<int>();
         public List<int> botS = new List<int>();
@@ -299,10 +300,10 @@ namespace Dice_game
 
 
             SOStats();
-            //Console.WriteLine("\nPress enter to continue");
-            //Console.WriteLine();
-            //Console.ReadLine();
-            //next();
+            Console.WriteLine("\nPress enter to continue");
+            Console.WriteLine();
+            Console.ReadLine();
+            next();
         }
 
         public void WinPVE()
@@ -329,10 +330,28 @@ namespace Dice_game
                 Console.WriteLine($"It was a draw with both players getting {playerScore1} points!");
             }
 
+            SOStats();
             Console.WriteLine("\nPress enter to continue");
             Console.WriteLine();
             Console.ReadLine();
             next();
+        }
+
+        public void WinTest()
+        {
+            Console.WriteLine("\nThe game has ended.");
+            if (botTestscore1 > botTestscore2)
+            {
+                Console.WriteLine($"Computer 1 wins with {botTestscore1} points!");
+            }
+            else if (botTestscore2 > botTestscore1)
+            {
+                Console.WriteLine($"Computer 2 wins with {botTestscore2} points!");
+            }
+            else
+            {
+                Console.WriteLine($"It was a draw with both players getting {botTestscore1} points!");
+            }
         }
 
         public void SOStats()
@@ -380,22 +399,94 @@ namespace Dice_game
             playerAveragescore2 = sumOfscore2 /player2SLength;
             botAveragescore = sumOfbotScore / botSLength;
 
-            Console.WriteLine("\nSevens Out Statistics: ");
-            Console.WriteLine($"\nPlayer 1 high score: {highPlayerscore1}");
-            Console.WriteLine($"Player 1 average score: {playerAveragescore1}");
-            Console.WriteLine($"Player 2 high score: {highPlayerscore2}");
-            Console.WriteLine($"Player 2 average score: {playerAveragescore2}");
-            Console.WriteLine($"Computer high score: {highBotscore}");
-            Console.WriteLine($"Computer average score: {botAveragescore}");
-            Console.WriteLine($"Amount of turns taken played: {sCounter}");
-            Console.WriteLine($"Times dice has been rolled: {diceCounter}");
-            Console.WriteLine($"Time game played: {gaCounter}");
         }
 
         public void next()
         {
             Game game = new Game();
             game.menu();
+        }
+
+        public void BotTest1()
+        {
+            die1.Roll();
+
+            Thread.Sleep(100);
+            die2.Roll();
+
+            int die1Val = die1.dieValue;
+            int die2Val = die2.dieValue;
+
+            SumOfDie += die1Val + die2Val;
+
+            Console.WriteLine($"\nDie roll 1: {die1Val}");
+            Console.WriteLine($"Die roll 2: {die2Val}");
+            Console.WriteLine($"\nThe total is: {SumOfDie}");
+
+            if (SumOfDie == 7)
+            {
+                WinTest();
+            }
+            else
+            {
+                if (die1Val == die2Val)
+                {
+                    scoreAdd = SumOfDie * 2;
+                    botTestscore1 += scoreAdd;
+                }
+                else
+                {
+                    botTestscore1 += SumOfDie;
+                }
+                Console.WriteLine("\nThe current scores are:");
+                Console.WriteLine($"Computer 1: {botTestscore1}");
+                Console.WriteLine($"Computer 2: {botTestscore2}");
+                Console.WriteLine("It is now Computer 2's turn");
+                SumOfDie = 0;
+                scoreAdd = 0;
+                BotTest2();
+            }
+        }
+
+        public void BotTest2()
+        {
+            die1.Roll();
+
+            Thread.Sleep(100);
+            die2.Roll();
+
+            int die1Val = die1.dieValue;
+            int die2Val = die2.dieValue;
+
+            SumOfDie += die1Val + die2Val;
+
+            Console.WriteLine($"\nDie roll 1: {die1Val}");
+            Console.WriteLine($"Die roll 2: {die2Val}");
+            Console.WriteLine($"\nThe total is: {SumOfDie}");
+
+            if (SumOfDie == 7)
+            {
+                WinTest();
+            }
+            else
+            {
+                if (die1Val == die2Val)
+                {
+                    scoreAdd = SumOfDie * 2;
+                    botTestscore2 += scoreAdd;
+                }
+                else
+                {
+                    botTestscore2 += SumOfDie;
+                }
+                Console.WriteLine("\nThe current scores are:");
+                Console.WriteLine($"Computer 1: {botTestscore1}");
+                Console.WriteLine($"Computer 2: {botTestscore2}");
+                Console.WriteLine("It is now Computer 1's turn");
+                SumOfDie = 0;
+                scoreAdd = 0;
+                BotTest1();
+            }
         }
     }
 }
