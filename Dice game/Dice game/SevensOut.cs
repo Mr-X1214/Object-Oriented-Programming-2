@@ -9,7 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Dice_game
 {
-    internal class SevensOut
+    public class SevensOut
     {
         Die die1 = new Die();
         Die die2 = new Die();
@@ -18,18 +18,6 @@ namespace Dice_game
         public int playerScore1;
         public int playerScore2;
         public int botScore;
-        public int hps1;
-        public int hps2;
-        public int hbs;
-        public int player1SLength;
-        public int player2SLength;
-        public int botSLength;
-        public int pas1;
-        public int pas2;
-        public int bas;
-        public int sc;
-        public int dc;
-        public int gc;
         public int diceCounter;
         public int gaCounter;
         public int SumOfDie;
@@ -279,9 +267,7 @@ namespace Dice_game
 
         public void WinPVP()
         {
-            player1S.Add(1);
-            player2S.Add(1);
-            botS.Add(1);
+            botS.Add(0);
             player1S.Add(playerScore1);
             player2S.Add(playerScore2);
             gameCounter.Add(gCounter);
@@ -301,7 +287,6 @@ namespace Dice_game
                 Console.WriteLine($"It was a draw with both players getting {playerScore1} points!");
             }
 
-
             SOStats();
             Console.WriteLine("\nPress enter to continue");
             Console.WriteLine();
@@ -311,9 +296,7 @@ namespace Dice_game
 
         public void WinPVE()
         {
-            player1S.Add(1);
-            player2S.Add(1);
-            botS.Add(1);
+            player2S.Add(0);
             player1S.Add(playerScore1);
             botS.Add(botScore);
             gameCounter.Add(gCounter);
@@ -366,8 +349,6 @@ namespace Dice_game
             player1S.Reverse();
             player2S.Reverse();
             botS.Reverse();
-            player1SLength = player1S.Count;
-            player2SLength = player2S.Count;
 
             foreach (int item in turnCounter)
             {
@@ -377,36 +358,17 @@ namespace Dice_game
             {
                 dCounter = item + item;
             }
-            foreach (int item in player1S)
-            {
-                sumOfscore1 = item + item;
-            }
-            foreach (int item in player2S)
-            {
-                sumOfscore2 = item + item;
-            }
-            foreach (int item in botS)
-            {
-                sumOfbotScore = item + item;
-            }
             foreach (int item in gameCounter)
             {
                 gaCounter = item + item;
             }
 
-            sc = sCounter;
-            dc = dCounter;
-            gc = gaCounter;
-            hps1 = player1S[0];
-            hps2 = player2S[0];
-            hbs = botS[0];
-            botSLength = botS.Count;
-            pas1 = sumOfscore1 / player1SLength;
-            pas2 = sumOfscore2 /player2SLength;
-            bas = sumOfbotScore / botSLength;
-
-            Statistics stats = new Statistics();
-            stats.sevenstats(hps1, pas1, hps2, pas2, hbs, bas, sc, dc, gc);
+            Statistics.hps1 = player1S[0];
+            Statistics.hps2 = player2S[0];
+            Statistics.hbs = botS[0];
+            Statistics.sc = sCounter;
+            Statistics.dc = dCounter;
+            Statistics.gc = gaCounter;
         }
 
         public void next()
