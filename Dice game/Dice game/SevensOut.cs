@@ -11,33 +11,34 @@ namespace Dice_game
 {
     public class SevensOut
     {
-        Die die1 = new Die();
-        Die die2 = new Die();
+        // these bellow create the variables and objects I needed in this class
+        Die die1 = new Die(); // creates the first die object
+        Die die2 = new Die(); // creates the second die object
 
-        public int sevenCounter;
-        public int playerScore1;
-        public int playerScore2;
-        public int botScore;
-        public int diceCounter;
-        public int gaCounter;
-        public int SumOfDie;
-        public int scoreAdd;
-        public int sCounter;
-        public int dCounter;
-        public int gCounter;
-        public int sumOfscore1;
-        public int sumOfscore2;
-        public int sumOfbotScore;
-        public int botTestscore1;
-        public int botTestscore2;
-        public List<int> player1S = new List<int>();
-        public List<int> player2S = new List<int>();
-        public List<int> botS = new List<int>();
-        public List<int> turnCounter = new List<int>();
-        public List<int> dieCounter = new List<int>();
-        public List<int> gameCounter = new List<int>();
+        public int sevenCounter; // creates the variable for the turn counter
+        public int playerScore1; // creates the variable for player 1's score
+        public int playerScore2; // creates the variable for player 2's score
+        public int botScore; // creates the variable for the computer's score
+        public int diceCounter; // creates the variable for the dice rolls counter
+        public int gaCounter; // creates the variable for the amount of games played counter
+        public int SumOfDie; // creates the variable for adding up the dice roll totals
+        public int scoreAdd; // creates the variable for adding the dice roll totals to the score
+        public int sCounter; // creates the variable for adding up the turn counter
+        public int dCounter; // creates the variable for adding up the dice roll counter
+        public int gCounter; // creates the variable for adding up the game counter
+        public int botTestscore1; // creates the variable for the first computer's test score
+        public int botTestscore2; // creates the variable for the second computer's test score
+        public List<int> player1S = new List<int>(); // creates the list for all of player 1's scores
+        public List<int> player2S = new List<int>(); // creates the list for all of player 2's scores
+        public List<int> botS = new List<int>(); // creates the list for all of the computer's scores
+        public List<int> turnCounter = new List<int>(); // creates the list for all of the turn counter amounts
+        public List<int> dieCounter = new List<int>(); // creates the list for all of the dice roll counter amounts
+        public List<int> gameCounter = new List<int>(); // creates the list for all of the game counter amounts
 
 
+        /// <summary>
+        /// This shows the rules for the game before moving onto player1's turn
+        /// </summary>
         public void SOPVP()
         {
             gCounter += 1;
@@ -51,6 +52,9 @@ namespace Dice_game
             Player1PVP();
         }
 
+        /// <summary>
+        /// This is the same as the one above but moves onto the against the computer version
+        /// </summary>
         public void SOPVE()
         {
             gCounter += 1;
@@ -64,6 +68,9 @@ namespace Dice_game
             Player1PVE();
         }
 
+        /// <summary>
+        /// This is player 1's turn method for the PVP game
+        /// </summary>
         public void Player1PVP()
         {
             sevenCounter ++;
@@ -90,7 +97,14 @@ namespace Dice_game
 
             if (SumOfDie == 7)
             {
-                WinPVP();
+                Console.WriteLine("\nThe current scores are:");
+                Console.WriteLine($"Player 1: {playerScore1}");
+                Console.WriteLine($"Player 2: {playerScore2}");
+                Console.WriteLine("It is now Player 2's turn");
+                SumOfDie = 0;
+                scoreAdd = 0;
+                Console.ReadLine();
+                Player2();
             }
             else
             {
@@ -106,15 +120,18 @@ namespace Dice_game
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Player 1: {playerScore1}");
                 Console.WriteLine($"Player 2: {playerScore2}");
-                Console.WriteLine("It is now Player 2's turn");
+                Console.WriteLine("It is still Player 1's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
                 Console.ReadLine();
-                Player2();
+                Player1PVP();
 
             }
         }
 
+        /// <summary>
+        /// This is player 1's turn method for the against the computer version
+        /// </summary>
         public void Player1PVE()
         {
             sevenCounter += 1;
@@ -141,7 +158,14 @@ namespace Dice_game
 
             if (SumOfDie == 7)
             {
-                WinPVE();
+                Console.WriteLine("\nThe current scores are:");
+                Console.WriteLine($"Player 1: {playerScore1}");
+                Console.WriteLine($"Computer: {botScore}");
+                Console.WriteLine("It is now the computer's turn");
+                SumOfDie = 0;
+                scoreAdd = 0;
+                Console.ReadLine();
+                Bot();
             }
             else
             {
@@ -157,14 +181,17 @@ namespace Dice_game
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Player 1: {playerScore1}");
                 Console.WriteLine($"Computer: {botScore}");
-                Console.WriteLine("It is now the computer's turn");
+                Console.WriteLine("It is still Player 1's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
                 Console.ReadLine();
-                Bot();
+                Player1PVE();
             }
         }
 
+        /// <summary>
+        /// This is the method for Player 2's turn
+        /// </summary>
         public void Player2() 
         {
             sevenCounter ++;
@@ -204,19 +231,21 @@ namespace Dice_game
                 {
                     playerScore2 += SumOfDie;
                 }
-
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Player 1: {playerScore1}");
                 Console.WriteLine($"Player 2: {playerScore2}");
-                Console.WriteLine("It is now Player 1's turn");
+                Console.WriteLine("It is still Player 2's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
                 Console.ReadLine();
-                Player1PVP();
+                Player2();
 
             }
         }
 
+        /// <summary>
+        /// This is the method for the computer's turn
+        /// </summary>
         public void Bot()
         {
             sevenCounter += 1;
@@ -257,14 +286,17 @@ namespace Dice_game
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Player 1: {playerScore1}");
                 Console.WriteLine($"Computer: {botScore}");
-                Console.WriteLine("It is now Player 1's turn");
+                Console.WriteLine("It is still the computer's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
                 Console.ReadLine();
-                Player1PVE();
+                Bot();
             }
         }
 
+        /// <summary>
+        /// This is the method for what happens when both players have 7 in PVP
+        /// </summary>
         public void WinPVP()
         {
             botS.Add(0);
@@ -294,6 +326,9 @@ namespace Dice_game
             next();
         }
 
+        /// <summary>
+        /// This is the method for what happens when the player and the computer have 7
+        /// </summary>
         public void WinPVE()
         {
             player2S.Add(0);
@@ -323,6 +358,9 @@ namespace Dice_game
             next();
         }
 
+        /// <summary>
+        /// This is the method that is used in testing to show that the end method works
+        /// </summary>
         public void WinTest()
         {
             Console.WriteLine("\nThe game has ended.");
@@ -340,6 +378,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// The method for calculating the statistics for the game
+        /// </summary>
         public void SOStats()
         {
             player1S.Sort();
@@ -371,12 +412,18 @@ namespace Dice_game
             Statistics.gc = gaCounter;
         }
 
+        /// <summary>
+        /// This is the method to call the menu
+        /// </summary>
         public void next()
         {
             Game game = new Game();
             game.menu();
         }
 
+        /// <summary>
+        /// This is the method for the first computer player in the testing
+        /// </summary>
         public void BotTest1()
         {
             die1.Roll();
@@ -395,7 +442,13 @@ namespace Dice_game
 
             if (SumOfDie == 7)
             {
-                WinTest();
+                Console.WriteLine("\nThe current scores are:");
+                Console.WriteLine($"Computer 1: {botTestscore1}");
+                Console.WriteLine($"Computer 2: {botTestscore2}");
+                Console.WriteLine("It is now Computer 2's turn");
+                SumOfDie = 0;
+                scoreAdd = 0;
+                BotTest2();
             }
             else
             {
@@ -411,13 +464,16 @@ namespace Dice_game
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Computer 1: {botTestscore1}");
                 Console.WriteLine($"Computer 2: {botTestscore2}");
-                Console.WriteLine("It is now Computer 2's turn");
+                Console.WriteLine("It is still computer 1's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
-                BotTest2();
+                BotTest1();
             }
         }
 
+        /// <summary>
+        /// This is the method for the second computer player in the testing
+        /// </summary>
         public void BotTest2()
         {
             die1.Roll();
@@ -452,10 +508,10 @@ namespace Dice_game
                 Console.WriteLine("\nThe current scores are:");
                 Console.WriteLine($"Computer 1: {botTestscore1}");
                 Console.WriteLine($"Computer 2: {botTestscore2}");
-                Console.WriteLine("It is now Computer 1's turn");
+                Console.WriteLine("It is still Computer 2's turn");
                 SumOfDie = 0;
                 scoreAdd = 0;
-                BotTest1();
+                BotTest2();
             }
         }
     }

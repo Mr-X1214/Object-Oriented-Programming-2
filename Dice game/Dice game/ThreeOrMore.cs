@@ -40,6 +40,9 @@ namespace Dice_game
         public List<int> dieCounter = new List<int>();
         public List<int> gameCounter = new List<int>();
 
+        /// <summary>
+        /// This method shows the rules for the game
+        /// </summary>
         public void TOMPVP()
         {
             gCounter ++;
@@ -57,6 +60,9 @@ namespace Dice_game
             Player1PVP();
         }
 
+        /// <summary>
+        /// This does the same as the one above but moves it onto the against the computer version
+        /// </summary>
         public void TOMPVE()
         {
             gCounter ++;
@@ -74,6 +80,9 @@ namespace Dice_game
             Player1PVE();
         }
 
+        /// <summary>
+        /// This is the method for player 1's version for the PVP version
+        /// </summary>
         public void Player1PVP()
         {
             threeCounter ++;
@@ -265,6 +274,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this is the method for rerolling all of the dice for player 1 in PVP
+        /// </summary>
         public void Player1PVPReroll()
         {
             Console.WriteLine("\nRoll the dice...");
@@ -365,6 +377,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// This is the method for player 1's turn in the against the computer version
+        /// </summary>
         public void Player1PVE()
         {
             threeCounter ++;
@@ -556,6 +571,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// This is the method for rerolling all of the dice for player 1 in against the computer
+        /// </summary>
         public void Player1PVEReroll()
         {
             Console.WriteLine("\nRoll the dice...");
@@ -656,6 +674,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// This is the method for player 2's turn
+        /// </summary>
         public void Player2()
         {
             threeCounter ++;
@@ -847,6 +868,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        ///  this is the method for player 2 rerolling all of the dice
+        /// </summary>
         public void Player2Reroll()
         {
             Console.WriteLine("\nRoll the dice...");
@@ -947,6 +971,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        ///  this is the method for the computer's turn
+        /// </summary>
         public void Bot()
         {
             threeCounter ++;
@@ -1116,6 +1143,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        ///  this is the method for the computer reolling all of the dice
+        /// </summary>
         public void BotReroll()
         {
             Console.WriteLine("\nRolling the dice...");
@@ -1210,6 +1240,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this is the method for the end of the game in PVP
+        /// </summary>
         public void winPVP()
         {
             gameCounter.Add(gCounter);
@@ -1236,6 +1269,9 @@ namespace Dice_game
             next();
         }
 
+        /// <summary>
+        /// this is the method for the end of the game in against the computer
+        /// </summary>
         public void WinPVE()
         {
             gameCounter.Add(gCounter);
@@ -1262,6 +1298,9 @@ namespace Dice_game
             next();
         }
         
+        /// <summary>
+        /// this is the method for the end of the game when testing
+        /// </summary>
         public void WinTest()
         {
             reroll1 = false;
@@ -1277,6 +1316,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this method calculates all of the statistics for the game
+        /// </summary>
         public void TOMStats()
         {
 
@@ -1321,6 +1363,9 @@ namespace Dice_game
             Statistics.gc3 = gaCounter;
         }
 
+        /// <summary>
+        /// this method is for the first computer in testing
+        /// </summary>
         public void BotTest1()
         {
             die1.Roll();
@@ -1485,6 +1530,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this method is for the second computer in testing
+        /// </summary>
         public void BotTest2()
         {
             die1.Roll();
@@ -1649,6 +1697,9 @@ namespace Dice_game
             }
         }
         
+        /// <summary>
+        /// this method is used for rerolling all of the dice for the first computer in testing
+        /// </summary>
         public void BotTestReroll1()
         {
             die1.Roll();
@@ -1741,6 +1792,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this method is used for rerolling all of the dice for the second computer in testing
+        /// </summary>
         public void BotTestReroll2()
         {
             die1.Roll();
@@ -1833,6 +1887,9 @@ namespace Dice_game
             }
         }
 
+        /// <summary>
+        /// this calls the menu
+        /// </summary>
         public void next()
         {
             Game game = new Game();
