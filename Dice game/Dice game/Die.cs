@@ -13,8 +13,10 @@ namespace Dice_game
 
         //Method
 
-
-        // this is the method that rolls the dice
+        /// <summary>
+        /// this is the methos for rolling the dice
+        /// </summary>
+        /// <returns></returns>
         public int Roll()
         {
             // creates the random
